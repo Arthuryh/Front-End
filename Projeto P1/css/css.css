@@ -82,3 +82,10 @@ h1 {
     -moz-box-shadow: 1px 0px 8px 3px rgba(0,0,0,0.91);
     transition: 0.5s;
 }
+
+.apple{
+    background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url("...")no-repeat ;
+    background-size: cover;
+    height: 80vh;
+    width: 100%;
+}
