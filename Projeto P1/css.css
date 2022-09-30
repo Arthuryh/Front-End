@@ -1,3 +1,5 @@
+/* CSS GERAL*/
+
 *{
     margin: 0;
     margin: 0;
@@ -8,27 +10,32 @@ body {
     font-family: 'Caveat', cursive;
 }
 
+header {
+    background-image: linear-gradient(to right top, #2e0537, #480c4d, #641363, #831979, #a41f8e);
+}
+
 .navbar-brand {
     font-size: 2rem;
-    color: black;
+    color: white;
     font-family: 'Emilys Candy', cursive;
+    text-shadow: -3px 1px 4px rgba(0,0,0,0.6);    
 }
 
 .navbar-brand:hover {
-    color: black;
+    color: #C614A8;
     
 }
 
 .nav-link {
     margin-right: 10px;
     margin-left: 10px;
-    color: black;
+    color: white;
     text-transform: uppercase;
     font-family: 'Caveat', cursive;
 }
 
 .nav-link:hover {
-    color: black;
+    color: #C614A8;
 }
 
 .search {
@@ -51,17 +58,20 @@ body {
     font-weight: 700;
 }
 
-.main {
+.principal {
+    background: url(img/fundo_valorant.webp)no-repeat;
     background-size: cover;
     height: 100vh;
     background-position: 50% 50%;
     width: 100%;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.main h1 {
+.principal h1 {
     font-size: 4rem;
     font-weight: 700;
-
+    
 }
 
 .btn1 {
@@ -88,6 +98,7 @@ h1 {
     -webkit-box-shadow: 1px 0px 8px 3px rgba(0,0,0,0.91);
     -moz-box-shadow: 1px 0px 8px 3px rgba(0,0,0,0.91);
     transition: 0.5s;
+    cursor: pointer;
 }
 
 .apple{
@@ -97,20 +108,44 @@ h1 {
     width: 100%;
 }
 
-.news {
+.novidades {
     background: black;
     color: white;
 }
 
-.news::placeholder{
+.novidades h5{
+    color:#C614A8;
+}
+
+.novidades::placeholder{
     color:white;
 }
 
-.news p {
+.novidades p {
     margin: 0;
+}
+
+.novidades p:hover {
+    color: #C614A8;
+    cursor: pointer;
 }
 
 .fa{
     cursor: pointer;
     padding-right: 5px;
+}
+
+footer {
+    background-color: #000;
+}
+
+#direitos:hover {
+    color: white;
+    cursor: default;
+}
+
+/* CSS LOGIN*/
+
+.modal-title {
+    text-align: center;
 }

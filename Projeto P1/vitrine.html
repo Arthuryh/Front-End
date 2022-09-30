@@ -7,18 +7,14 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7db0b3eb0c.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css.css">
     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Emilys+Candy&display=swap" rel="stylesheet">
-
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-
-    <link rel="stylesheet" href="css.css">
-    <script src="js/script.js"></script>
-    <script src="js/produtos.js"></script>
-
 
     <title>Mitsuki Store | Seu amigurumi te espera aqui</title>
 </head>
@@ -44,8 +40,10 @@
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Usuário
                             </a>
-                            <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu text-center"
+                            aria-labelledby="navbarDropdown">
                                 <li><a href="" class="dropdown-item">Conta</a>
+                                    
                                 <li><a href="" class="dropdown-item">Carrinho</a>
                             </ul>
                         </li>
@@ -59,19 +57,19 @@
         </nav>
     </header>
 
-    <section class="principal">
-        <div class="container py-5">
-            <div class="row py-5">
-                <div class="col-lg-7 pt-5 text-center">
-                    <h1 class="pt-5">AMIGURUMI É AQUI<br>ADQUIRA JÁ O SEU!</h1>
-                    <button class="btn1 mt-3" onclick="location.href='vitrine.html'">VEM CONFERIR!</button>
+    
+    <!--===========================================================================
+        <section class="principal">
+            <div class="container py-5">
+                <div class="row py-5">
+                    <div class="col-lg-7 pt-5 text-center">
+                        <h1 class="pt-5">AMIGURUMI É AQUI<br>ADQUIRA JÁ O SEU!</h1>
+                        <button class="btn1 mt-3" onclick="location.href='vitrine.html'">VEM CONFERIR!</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!--===========================================================================
-    
+        </section>
+        
     <section class="new">
         <div class="cointainer py-5">
             <div class="row pt-5">
@@ -94,9 +92,6 @@
             </div>
         </div>
     </section>
-
-    ===========================================================================-->
-
     <section class="colecao">
         <div class="container py-5">
             <div class="row py-5">
@@ -107,16 +102,16 @@
             </div>
             <div class="row">
                 <div class="col-lg-3 text-center">
-                    <div class="card border-0 bg-light mb-2" id="1" onload="carregarProd_nome()">
+                    <div class="card border-0 bg-light mb-2">
                         <div class="card-body">
-                            <img src="img/produtos/p1.webp" class="img-fluid" alt="">
+                            <img src="img/produtos/p5.webp" class="img-fluid" alt="">
                         </div>
                     </div>
-                    <h6></h6>
+                    <h6>Cypher</h6>
                     <p>R$00.00</p>
                 </div>
                 <div class="col-lg-3 text-center">
-                    <div class="card border-0 bg-light mb-2" id="2">
+                    <div class="card border-0 bg-light mb-2">
                         <div class="card-body">
                             <img src="img/produtos/p2.webp" class="img-fluid" alt="">
                         </div>
@@ -125,7 +120,7 @@
                     <p>R$00.00</p>
                 </div>
                 <div class="col-lg-3 text-center">
-                    <div class="card border-0 bg-light mb-2" id="3">
+                    <div class="card border-0 bg-light mb-2">
                         <div class="card-body">
                             <img src="img/produtos/p3.webp" class="img-fluid" alt="">
                         </div>
@@ -134,7 +129,7 @@
                     <p>R$00.00</p>
                 </div>
                 <div class="col-lg-3 text-center">
-                    <div class="card border-0 bg-light mb-2" id="4">
+                    <div class="card border-0 bg-light mb-2">
                         <div class="card-body">
                             <img src="img/produtos/p4.webp" class="img-fluid" alt="">
                         </div>
@@ -185,15 +180,56 @@
         </div>
     </section>
 
-    <!--===========================================================================
+    ===========================================================================-->
+
+
         <section class="vitrine">
             <div class="container">
-                <div class="row py-5">
+                <div class="row py-4">
                     <div class="col-lg-8 m-auto text-center">
-                        <h1>EXPLORE NOSSA LOJA</h1>
-                        <h6 style="color: red;">Escolha seu produto aqui da loja!</h6>
+                        <h1>PRODUTOS</h1>
+                        <h6 style="color: red;">Escolha já seu produto!</h6>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 bg-light mb-2">
+                            <div class="card-body">
+                                <img src="img/produtos/p1.webp" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                        <h6>Texto do produto</h6>
+                        <p>R$00.00</p>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 bg-light mb-2">
+                            <div class="card-body">
+                                <img src="img/produtos/p2.webp" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                        <h6>Texto do produto</h6>
+                        <p>R$00.00</p>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 bg-light mb-2">
+                            <div class="card-body">
+                                <img src="img/produtos/p3.webp" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                        <h6>Texto do produto</h6>
+                        <p>R$00.00</p>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 bg-light mb-2">
+                            <div class="card-body">
+                                <img src="img/produtos/p4.webp" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                        <h6>Texto do produto</h6>
+                        <p>R$00.00</p>
+                    </div>
+                </div>
+                <!--
                 <div class="row">
                     <div class="col-lg-3 text-center">
                         <div class="card border-0 bg-light mb-2">
@@ -269,48 +305,10 @@
                         <h6>Texto do produto</h6>
                         <p>R$00.00</p>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p1.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p2.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p3.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p4.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
+                    -->
                 </div>
             </div>
         </section>
-    -->
 
     <!--
     <section class="apple py-5">
@@ -326,7 +324,6 @@
     </section>
 </body>
 -->
-
 
 <section class="contato py-5">
     <div class="container py-5">
@@ -359,56 +356,54 @@
     </div>
 </section>
 
-<footer>
-    <section class="novidades py-5">
-        <div class="containter py-5">
-            <div class="row align-self-center">
-                <div class="col-lg-11 m-auto">
-                    <div class="row">
-                        <div class="col-lg-3 py-3">
-                            <h5 class="pb-3">FORMAS DE PAGAMENTO</h5>
-                            <span class="fa-stack fa-lg">
-                                <i class=" fa-brands fa-cc-mastercard fa-stack-2x"></i>
-                            </span>
-                            <span class="fa-stack fa-lg">
-                                <i class="fa-brands fa-cc-visa fa-stack-2x"></i>
-                            </span>
-                            <span class="fa-stack fa-lg">
-                                <i class=" fa-brands fa-pix fa-stack-2x"></i>
-                            </span>
-                            <span class="fa-stack fa-lg">
-                                <i class="fa-sharp fa-solid fa-file-invoice-dollar fa-stack-2x"></i>
-                            </span>
-                        </div>
-                        <div class="col-lg-3 py-3">
-                            <h5 class="pb-3">INSTITUCIONAL</h5>
-                            <p>Quem sou</p>
-                            <p>Política de Privacidade</p>
-                            <p>Programa de Fidelidade</p>
-                        </div>
-                        <div class="col-lg-3 py-3">
-                            <h5 class="pb-3">DÚVIDAS</h5>
-                            <p>FAQ</p>
-                            <p>Trocas e devoluções</p>
-                            <p>Item 3</p>
-                        </div>
-                        <div class="col-lg-3 py-3">
-                            <h5 class="pb-3">MIDIAS SOCIAIS</h5>
-                            <span class="fa-stack fa-lg" onclick="location.href='https://br.pinterest.com/MitsukiCrochetStore'">
-                                <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                <i class=" fa fa-pinterest fa-stack-1x fa"></i>
-                            </span>
-                            <span class="fa-stack fa-lg" onclick="location.href='https://www.instagram.com/mitsukicrochetstore/'">
-                                <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                <i class=" fa fa-instagram fa-stack-1x fa"></i>
-                            </span>
-                        </div>
+<section class="novidades py-5">
+    <div class="containter py-5">
+        <div class="row align-self-center">
+            <div class="col-lg-11 m-auto">
+                <div class="row">
+                    <div class="col-lg-3 py-3">
+                        <h5 class="pb-3">FORMAS DE PAGAMENTO</h5>
+                        <span class="fa-stack fa-lg">
+                            <i class=" fa-brands fa-cc-mastercard fa-stack-2x"></i>
+                        </span>
+                        <span class="fa-stack fa-lg">
+                            <i class="fa-brands fa-cc-visa fa-stack-2x"></i>
+                        </span>
+                        <span class="fa-stack fa-lg">
+                            <i class=" fa-brands fa-pix fa-stack-2x"></i>
+                        </span>
+                        <span class="fa-stack fa-lg">
+                            <i class="fa-sharp fa-solid fa-file-invoice-dollar fa-stack-2x"></i>
+                        </span>
+                    </div>
+                    <div class="col-lg-3 py-3">
+                        <h5 class="pb-3">INSTITUCIONAL</h5>
+                        <p>Quem sou</p>
+                        <p>Política de Privacidade</p>
+                        <p>Programa de Fidelidade</p>
+                    </div>
+                    <div class="col-lg-3 py-3">
+                        <h5 class="pb-3">DÚVIDAS</h5>
+                        <p>FAQ</p>
+                        <p>Trocas e devoluções</p>
+                        <p>Item 3</p>
+                    </div>
+                    <div class="col-lg-3 py-3">
+                        <h5 class="pb-3">MIDIAS SOCIAIS</h5>
+                        <span class="fa-stack fa-lg" onclick="location.href='https://br.pinterest.com/MitsukiCrochetStore'">
+                            <i class="fa fa-circle-thin fa-stack-2x"></i>
+                            <i class=" fa fa-pinterest fa-stack-1x fa"></i>
+                        </span>
+                        <span class="fa-stack fa-lg" onclick="location.href='https://www.instagram.com/mitsukicrochetstore/'">
+                            <i class="fa fa-circle-thin fa-stack-2x"></i>
+                            <i class=" fa fa-instagram fa-stack-1x fa"></i>
+                        </span>
                     </div>
                 </div>
-                <hr>
-                <p class="text-center" id="direitos">Direitos Autorais ©2022 Todos os direitos reservados | Esse site foi desenvolvido por Arthur Hayakawa</p>
             </div>
+            <hr>
+            <p class="text-center" id="direitos">Direitos Autorais ©2022 Todos os direitos reservados | Esse site foi desenvolvido por Arthur Hayakawa</p>
         </div>
-    </section>
-</footer>
+    </div>
+</section>
 </html>
