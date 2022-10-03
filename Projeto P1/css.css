@@ -6,27 +6,44 @@
     box-sizing: border-box;
 }
 
-body {
+#corpo {
     font-family: 'Caveat', cursive;
 }
 
-header {
+#cabecario {
     background-image: linear-gradient(to right top, #2e0537, #480c4d, #641363, #831979, #a41f8e);
 }
 
-.navbar-brand {
+/* CSS DO MENU*/
+
+#titulo {
+    font-weight: 700;
+}
+
+@media screen and (max-width: 420px) and (min-width: 0px) {
+    #titulo {
+        padding-top: 0% !important;
+        margin-bottom: 0% !important;
+    }
+
+    #quadro-inicial #titulo {
+        padding-top: 35% !important;
+    }
+}
+
+#menu-logo {
     font-size: 2rem;
     color: white;
     font-family: 'Emilys Candy', cursive;
     text-shadow: -3px 1px 4px rgba(0,0,0,0.6);    
 }
 
-.navbar-brand:hover {
+#menu-logo:hover {
     color: #C614A8;
     
 }
 
-.nav-link {
+#menu-opcao{
     margin-right: 10px;
     margin-left: 10px;
     color: white;
@@ -34,71 +51,133 @@ header {
     font-family: 'Caveat', cursive;
 }
 
-.nav-link:hover {
+#menu-opcao:hover {
     color: #C614A8;
 }
 
-.search {
+#menu-drop{
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Caveat', cursive;
+}
+
+#menu-drop:hover {
+    color: #C614A8;
+}
+
+
+
+#menu-drop-opcao:hover {
+    color: #C614A8;
+}
+
+#busca {
     height: 40px;
     width: 80%;
     border-radius: 60px;
     outline: none;
     margin-right: -35px;
-    border: 2px solid rgb(red, green, blue);
+    border: 2px solid black
 }
 
-.btn0{
+#botao-busca{
     height: 40px;
     width: 40%;
     outline: none;
     border: none;
-    background: rgb(red, green, blue);
-    color: red;
+    background: #a41f8e;
+    color: white;
     border-radius: 60px;
     font-weight: 700;
 }
 
-.principal {
-    background: url(img/fundo_valorant.webp)no-repeat;
+#botao-busca:hover{
+    background-color:#C614A8;
+}
+
+/* CSS CORPO GERAL*/
+
+#quadro-inicial {
+    background: url(img/fundo.webp)no-repeat;
     background-size: cover;
     height: 100vh;
-    background-position: 50% 50%;
+    background-position: 10% 60%;
     width: 100%;
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.principal h1 {
+#quadro-inicial #titulo {
     font-size: 4rem;
     font-weight: 700;
     
 }
 
-.btn1 {
+@media screen and (max-width: 420px) and (min-width: 0px) {
+    #quadro-inicial {
+        background: url(img/fundo-celular.webp)no-repeat;
+        
+    }
+    
+    #quadro-inicial #espaco-texto {
+        padding-top: 0% !important; 
+    }
+}
+
+
+#botao-vitrine {
     height: 45px;
     width: 35%;
     border: none;
     outline: none;
-    background-color: pink;
+    background-color: #c077b4;
     color: white;
     font-weight: 700;
     border-radius: 60px;
 }
 
-.btn1:hover{
-    background-color: red;
+#botao-vitrine:hover{
+    background-color: #a41f8e;
     transition: 0.5s;
 }
 
-h1 {
-    font-weight: 700;
+@media screen and (max-width: 420px) and (min-width: 0px) {
+    #botao-vitrine {
+        width: 100% !important;
+    }
 }
-.card:hover{
+
+#prod-card:hover{
     box-shadow: 0px 0px 8px 3px rgba(0,0,0,0.91);
     -webkit-box-shadow: 1px 0px 8px 3px rgba(0,0,0,0.91);
     -moz-box-shadow: 1px 0px 8px 3px rgba(0,0,0,0.91);
     transition: 0.5s;
     cursor: pointer;
+}
+
+#prod-imagem {
+    max-width: 100%;
+    height: 80%;
+}
+
+@media screen and (max-width: 420px) and (min-width: 0px) {
+    #prod-imagem {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 420px) and (min-width: 0px) {
+    #sobre-produtos {
+        text-align: center;
+    }
+
+    #sobre-produtos #titulo{
+        padding-bottom: 0%;
+        margin-bottom: 0%;
+    }
 }
 
 .apple{
@@ -108,31 +187,56 @@ h1 {
     width: 100%;
 }
 
-.novidades {
+#pre-rodape {
     background: black;
     color: white;
 }
 
-.novidades h5{
+#pre-rodape #titulo-pre-rodape{
     color:#C614A8;
 }
 
-.novidades::placeholder{
+#pre-rodape::placeholder{
     color:white;
 }
 
-.novidades p {
+#pre-rodape p {
     margin: 0;
 }
 
-.novidades p:hover {
+#pre-rodape p:hover {
     color: #C614A8;
     cursor: pointer;
 }
 
-.fa{
+@media screen and (max-width: 420px) and (min-width: 0px) {
+    #pre-rodape{
+        text-align: center;
+    }
+
+    #pre-rodape #titulo-pre-rodape{
+        padding-bottom: 0%;
+        margin-bottom: 0%;
+    }
+}
+
+@media screen and (max-width: 420px) and (min-width: 0px) {
+    #contato {
+        text-align: center;
+    }
+
+    #titulo-superior {
+        margin-top: 10%;
+    }
+}
+
+#redes-sociais{
     cursor: pointer;
     padding-right: 5px;
+}
+
+#redes-sociais:hover{
+    color: #C614A8;
 }
 
 footer {
@@ -140,12 +244,65 @@ footer {
 }
 
 #direitos:hover {
-    color: white;
-    cursor: default;
+    color: white !important;
+    cursor: default !important;
 }
 
 /* CSS LOGIN*/
 
-.modal-title {
-    text-align: center;
+#caixa-2 {
+    display: none;
+}
+
+
+#titulo_do_cadastrar{
+    padding-bottom: 0px;
+    margin-bottom: 0;
+}
+
+#botao_de_cadastrar {
+    height: 45px;
+    width: 35%;
+    border: none;
+    outline: none;
+    background-color: #c077b4;
+    color: white;
+    font-weight: 700;
+    border-radius: 60px;
+    padding-top: 0px;
+}
+
+#botao_de_cadastrar:hover{
+    background-color: #a41f8e;
+    transition: 0.5s;
+}
+
+@media screen and (max-width: 450px) and (min-width: 0px) {
+    #caixa-1 {
+        display: block !important;
+    }
+    
+    #caixa-cadastro {
+        flex-shrink: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        margin-top: -10% !important;
+        display: block !important;
+    }
+
+      #caixa-login {
+        flex-shrink: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        margin-top: -10% !important;
+        display: block !important;
+    }
+
+      #modal {
+        display: block !important;
+    }
 }
