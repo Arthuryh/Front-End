@@ -1,22 +1,28 @@
-function botao_cadastrar() {
-    var form1 = document.getElementById("caixa-1");
-    var form2 = document.getElementById("caixa-2");
-    
-    form1.style.display = "none";
-    form1.style.visibility = "hidden";
+function validar(){
+    if(nome.value.length<3){
+        alert("Informe o seu nome completo!");
+        nome.focus();
+        return false;
+    }
 
-    form2.style.display = "flex"
-    form2.style.display = "visible"
-}
+    if(senha.value.length<6 || !isNaN(senha.value)) {
+        alert("Informe uma senha com almenos 6 caracteres!");
+        senha.focus();
+        return false;
+    }
 
-function botao_cadastro_reexibir() {
-    var form1 = document.getElementById("caixa-1");
-    var form2 = document.getElementById("caixa-2");
+    if(senha.value != senha2.value){
+        alert("Confirmação não bate com a senha!");
+        senha2.focus();
+    }
 
+    if(email.value.length<6 || email.value.indexOf("@" < 1)) {
+        alert("Informe um email válido");
+        email.value = "";
+        email.focus();
+        return false;
+    }
 
-    form1.style.display = "flex";
-    form1.style.visibility = "visible";
-
-    form2.style.display = "none"
-    form2.style.display = "hidden"
+    alert("Tudo certo!");
+    frm1.subtmit();
 }

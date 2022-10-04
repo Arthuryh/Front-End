@@ -15,32 +15,11 @@
 }
 
 /* CSS DO MENU*/
-
-#titulo {
-    font-weight: 700;
-}
-
-@media screen and (max-width: 420px) and (min-width: 0px) {
-    #titulo {
-        padding-top: 0% !important;
-        margin-bottom: 0% !important;
-    }
-
-    #quadro-inicial #titulo {
-        padding-top: 35% !important;
-    }
-}
-
 #menu-logo {
     font-size: 2rem;
     color: white;
     font-family: 'Emilys Candy', cursive;
     text-shadow: -3px 1px 4px rgba(0,0,0,0.6);    
-}
-
-#menu-logo:hover {
-    color: #C614A8;
-    
 }
 
 #menu-opcao{
@@ -51,26 +30,12 @@
     font-family: 'Caveat', cursive;
 }
 
-#menu-opcao:hover {
-    color: #C614A8;
-}
-
 #menu-drop{
     margin-right: 10px;
     margin-left: 10px;
     color: white;
     text-transform: uppercase;
     font-family: 'Caveat', cursive;
-}
-
-#menu-drop:hover {
-    color: #C614A8;
-}
-
-
-
-#menu-drop-opcao:hover {
-    color: #C614A8;
 }
 
 #busca {
@@ -87,14 +52,10 @@
     width: 40%;
     outline: none;
     border: none;
-    background: #a41f8e;
+    background: #c077b4;
     color: white;
     border-radius: 60px;
     font-weight: 700;
-}
-
-#botao-busca:hover{
-    background-color:#C614A8;
 }
 
 /* CSS CORPO GERAL*/
@@ -115,19 +76,22 @@
     
 }
 
-@media screen and (max-width: 420px) and (min-width: 0px) {
+@media screen and (max-width: 450px) and (min-width: 0px) {
     #quadro-inicial {
-        background: url(img/fundo-celular.webp)no-repeat;
-        
+        background-position: 5% 50%;
     }
     
     #quadro-inicial #espaco-texto {
         padding-top: 0% !important; 
     }
+
+    #titulo {
+        padding-top: 35% !important;
+        margin-bottom: 0% !important;
+    }
 }
 
-
-#botao-vitrine {
+#botao-vitrine, #botao-modal{
     height: 45px;
     width: 35%;
     border: none;
@@ -138,12 +102,7 @@
     border-radius: 60px;
 }
 
-#botao-vitrine:hover{
-    background-color: #a41f8e;
-    transition: 0.5s;
-}
-
-@media screen and (max-width: 420px) and (min-width: 0px) {
+@media screen and (max-width: 450px) and (min-width: 0px) {
     #botao-vitrine {
         width: 100% !important;
     }
@@ -162,14 +121,14 @@
     height: 80%;
 }
 
-@media screen and (max-width: 420px) and (min-width: 0px) {
+@media screen and (max-width: 450px) and (min-width: 0px) {
     #prod-imagem {
         max-width: 100%;
         height: auto;
     }
 }
 
-@media screen and (max-width: 420px) and (min-width: 0px) {
+@media screen and (max-width: 450px) and (min-width: 0px) {
     #sobre-produtos {
         text-align: center;
     }
@@ -209,7 +168,7 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 420px) and (min-width: 0px) {
+@media screen and (max-width: 450px) and (min-width: 0px) {
     #pre-rodape{
         text-align: center;
     }
@@ -220,7 +179,7 @@
     }
 }
 
-@media screen and (max-width: 420px) and (min-width: 0px) {
+@media screen and (max-width: 450px) and (min-width: 0px) {
     #contato {
         text-align: center;
     }
@@ -235,10 +194,6 @@
     padding-right: 5px;
 }
 
-#redes-sociais:hover{
-    color: #C614A8;
-}
-
 footer {
     background-color: #000;
 }
@@ -249,6 +204,12 @@ footer {
 }
 
 /* CSS LOGIN*/
+
+#corpoModal1, #corpoModal2, #frm2, #frm1{
+    background: linear-gradient(to right top, #2e0537, #480c4d, #641363, #831979, #a41f8e);
+    color: white;
+}
+
 
 #caixa-2 {
     display: none;
@@ -272,8 +233,9 @@ footer {
     padding-top: 0px;
 }
 
-#botao_de_cadastrar:hover{
-    background-color: #a41f8e;
+#menu-logo:hover,#menu-opcao:hover,#menu-drop:hover,#menu-drop-opcao:hover, #botao-modal:hover,
+#botao-busca:hover,#botao-vitrine:hover,#redes-sociais:hover,#botao_de_cadastrar:hover{
+    color: #a41f8e;
     transition: 0.5s;
 }
 
@@ -282,27 +244,13 @@ footer {
         display: block !important;
     }
     
-    #caixa-cadastro {
-        flex-shrink: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-right: 0 !important;
-        padding-left: 0 !important;
-        margin-top: -10% !important;
+    #modal {
         display: block !important;
     }
 
-      #caixa-login {
-        flex-shrink: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-right: 0 !important;
-        padding-left: 0 !important;
-        margin-top: -10% !important;
-        display: block !important;
+    #caixa-2 {
+        overflow-y: auto;
     }
-
-      #modal {
-        display: block !important;
-    }
+    
+    
 }
