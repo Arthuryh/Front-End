@@ -77,26 +77,30 @@
                             <h1 class="text-center py-5" id="titulo_do_cadastrar">Ainda não tenho cadastro</h1>
                             <div class="row-cols-1">
                                 <div class="text-center">
-                                    <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#myModal2" id="botao-modal">
+                                    <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#myModal2" id="botao-cadastrar">
                                         Clique aqui para cadastrar
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <div class="col text-center py-5">
-                            <form id="frm2" class="form-control py-5">
+                            <form id="frm1" class="form-control py-5">
                                 <div class="col-lg-5 m-auto text-center">
                                     <h1>Login</h1>
                                 </div>
                                 <div class="row-cols-2 py-2">
-                                    email: <input type="text" id="email"><br>
+                                    Email: <input type="text" id="txtEmailLog"><br>
                                 </div>
+                                <ul id="lblEmailLog" class="errolbl"></ul>
+
                                 <div class="row-cols-2 py-2">
-                                    senha:<input type="password" id="senha"><br>
+                                    Senha: <input type="password" id="txtSenhaLog"><br>
                                 </div>
+                                <ul id="lblSenhaLog" class="errolbl"></ul>
+
                                 <div class="row-1 cols-2 py-2">
-                                    <button type="button" onclick="" id="botao-modal">Enviar</button>
-                                    <button type="button" onclick="" id="botao-modal">Esqueci a senha</button>
+                                    <button type="button" onclick="validarLogin();" id="botao-modal">Entrar</button>
+                                    <button type="button" onclick="" data-bs-toggle="modal" data-bs-target="#myModal3" id="botao-modal">Esqueci a senha</button>
                                 </div>
                             </form>
                         </div>
@@ -118,28 +122,40 @@
                 <!-- Modal body -->
                 <div class="modal-body" id="modal">
                     <div class="row py-5" id="caixa-1">
-                        <form id="frm1" class="form-control">
+                        <form id="frm2" class="form-control">
                             <h1 class="text-center py-3">Cadastrar-se</h1>
                             <div class="row-cols-2 py-2">
-                                Nome:<input type="text" id="nome-cad">
+                                Nome: <input type="text" id="txtNomeCad">
                             </div>
+                            <ul id="erroNome" class="errolbl"></ul>
+
                             <div class="row-cols-2 py-2">
-                                Email: <input type="text" id="email-cad">
+                                Email: <input type="text" id="txtEmailCad">
                             </div>
+                            <ul id="erroEmail" class="errolbl"></ul>
+
                             <div class="row-cols-2 py-2">
-                                Senha:<input type="password" id="senha-cad">
+                                Senha: <input type="password" id="txtSenhaCad">
                             </div>
+                            <ul id="erroSenha" class="errolbl"></ul>
+
                             <div class="row-cols-2 py-2">
-                                Confirma:<input type="password" id="confirma-cad">
+                                Confirma: <input type="password" id="txtConfirmaCad">
                             </div>
+                            <ul id="erroConfirma" class="errolbl"></ul>
+
                             <div class="row-cols-2 py-2">
-                                CPF: <input type="text" id="cpf-cad"><br>
+                                CPF: <input type="text" id="txtCpfCad"><br>
                             </div>
+                            <ul id="erroCpf" class="errolbl"></ul>
+
                             <div class="row-cols-2 py-2">
-                                Telefone: <input type="text" id="telefone-cad"><br>
+                                Telefone: <input type="text" id="txtTelCad"><br>
                             </div>
+                            <ul id="erroTelefone" class="errolbl"></ul>
+
                             <div class="row-cols-1 py-2">
-                                <button type="button" class="w-100" onclick="validar();" id="botao-modal">Enviar</button>
+                                <button type="button" class="w-100" onclick="validarCad();" id="botao-modal">Enviar</button>
                             </div>
                         </form>
                     </div>
@@ -147,6 +163,36 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" id="myModal3">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" id="corpoModal2">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Área do Usuário</h4>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#myModal"></button>
+                </div>
+                
+                
+                <!-- Modal body -->
+                <div class="modal-body" id="modal">
+                    <div class="row py-5" id="caixa-1">
+                        <form id="frm3" class="text-center form-control">
+                            <h1 class="py-3">Esqueci a Senha</h1>
+                            <div class="row-cols-2 py-2">
+                                Digite o Email: <input type="text" id="txtEmailEsq">
+                            </div>
+                            <ul id="lblEmailEsq" class="errolbl"></ul>
+                            <div class="row-cols-1 py-2">
+                                <button type="button" class="w-100" onclick="validarEsq();" id="botao-modal">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <section class="principal" id="quadro-inicial">
         <div class="container py-5">
@@ -159,33 +205,6 @@
         </div>
     </section>
 
-    <!--===========================================================================
-    
-    <section class="new">
-        <div class="cointainer py-5">
-            <div class="row pt-5">
-                <div class="col-lg-7 m-auto">
-                    <div class="row text-center">
-                        <div class="col-lg-4">
-                            <img src="..." class="img-fluid" alt="">
-                            <h6>TEXTO</h6>
-                        </div>
-                        <div class="col-lg-4">
-                            <img src="..." class="img-fluid" alt="">
-                            <h6>TEXTO</h6>
-                        </div>
-                        <div class="col-lg-4">
-                            <img src="..." class="img-fluid" alt="">
-                            <h6>TEXTO</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    ===========================================================================-->
-
     <section class="colecao">
         <div class="container py-5">
             <div class="row py-5">
@@ -196,12 +215,12 @@
             </div>
             <div class="row">
                 <div class="col-lg-3 text-center">
-                    <div class="card border-0 bg-light mb-2" id="prod-card">
+                    <div class="card border-0 bg-light mb-2" id="prod-card" onclick="abrirProd();">
                         <div class="card-body">
                             <img src="img/produtos/p1.webp" class="img-fluid" alt="">
                         </div>
                     </div>
-                    <h6>Cypher</h6>
+                    <h6 id="prod">Cypher</h6>
                     <p>R$70.00</p>
                 </div>
                 <div class="col-lg-3 text-center">
@@ -210,7 +229,7 @@
                             <img src="img/produtos/p2.webp" class="img-fluid" alt="">
                         </div>
                     </div>
-                    <h6>Killjoy</h6>
+                    <h6 id="prod">Killjoy</h6>
                     <p>R$70.00</p>
                 </div>
                 <div class="col-lg-3 text-center">
@@ -219,7 +238,7 @@
                             <img src="img/produtos/p3.webp" class="img-fluid" alt="">
                         </div>
                     </div>
-                    <h6>Sage</h6>
+                    <h6 id="prod">Sage</h6>
                     <p>R$70.00</p>
                 </div>
                 <div class="col-lg-3 text-center">
@@ -228,7 +247,7 @@
                             <img src="img/produtos/p4.webp" class="img-fluid" alt="">
                         </div>
                     </div>
-                    <h6>Jett</h6>
+                    <h6 id="prod">Jett</h6>
                     <p>R$70.00</p>
                 </div>
             </div>
@@ -274,230 +293,88 @@
         </div>
     </section>
 
-    <!--===========================================================================
-        <section class="vitrine">
-            <div class="container">
-                <div class="row py-5">
-                    <div class="col-lg-8 m-auto text-center">
-                        <h1>EXPLORE NOSSA LOJA</h1>
-                        <h6 style="color: red;">Escolha seu produto aqui da loja!</h6>
+
+    <section class="contato py-5" id="contato">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-5 m-auto text-center">
+                    <h1 id="titulo">Quer um amigurumi personalizado?</h1>
+                    <h6 style="color: red;">Entre em contato e peça já o seu!</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-4 m-auto">
+                            <h6 id="titulo-superior">Localização</h6>
+                            <p>Ipiranga - São Paulo</p>
+                            
+                            <h6>Telefone</h6>
+                            <p>(11)976580893</p>
+                            
+                            <h6>EMAIL</h6>
+                            <p>miiamigurumi99@gmail.com</p>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="row">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p1.webp" class="img-fluid" alt="">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <section class="novidades py-5" id="pre-rodape">
+            <div class="containter py-5">
+                <div class="row align-self-center">
+                    <div class="col-lg-11 m-auto">
+                        <div class="row">
+                            <div class="col-lg-3 py-3">
+                                <h5 class="pb-3" id="titulo-pre-rodape">FORMAS DE PAGAMENTO</h5>
+                                <span class="fa-stack fa-lg">
+                                    <i class=" fa-brands fa-cc-mastercard fa-stack-2x"></i>
+                                </span>
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa-brands fa-cc-visa fa-stack-2x"></i>
+                                </span>
+                                <span class="fa-stack fa-lg">
+                                    <i class=" fa-brands fa-pix fa-stack-2x"></i>
+                                </span>
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa-sharp fa-solid fa-file-invoice-dollar fa-stack-2x"></i>
+                                </span>
+                            </div>
+                            <div class="col-lg-3 py-3">
+                                <h5 class="pb-3" id="titulo-pre-rodape">INSTITUCIONAL</h5>
+                                <p>Quem sou</p>
+                                <p>Política de Privacidade</p>
+                                <p>Programa de Fidelidade</p>
+                            </div>
+                            <div class="col-lg-3 py-3">
+                                <h5 class="pb-3" id="titulo-pre-rodape">DÚVIDAS</h5>
+                                <p>FAQ</p>
+                                <p>Trocas e devoluções</p>
+                                <p>Item 3</p>
+                            </div>
+                            <div class="col-lg-3 py-3">
+                                <h5 class="pb-3" id="titulo-pre-rodape">MIDIAS SOCIAIS</h5>
+                                <span class="fa-stack fa-lg" onclick="location.href='https://br.pinterest.com/MitsukiCrochetStore'">
+                                    <i class="fa fa-circle-thin fa-stack-2x" id="redes-sociais"></i>
+                                    <i class=" fa fa-pinterest fa-stack-1x fa" id="redes-sociais"></i>
+                                </span>
+                                <span class="fa-stack fa-lg" onclick="location.href='https://www.instagram.com/mitsukicrochetstore/'">
+                                    <i class="fa fa-circle-thin fa-stack-2x" id="redes-sociais"></i>
+                                    <i class=" fa fa-instagram fa-stack-1x fa" id="redes-sociais"></i>
+                                </span>
                             </div>
                         </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
                     </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p2.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p3.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p4.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p1.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p2.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p3.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p4.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p1.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p2.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p3.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="card border-0 bg-light mb-2">
-                            <div class="card-body">
-                                <img src="img/produtos/p4.webp" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <h6>Texto do produto</h6>
-                        <p>R$00.00</p>
-                    </div>
+                    <hr>
+                    <p class="text-center" id="direitos">Direitos Autorais ©2022 Todos os direitos reservados | Esse site foi desenvolvido por Arthur Hayakawa</p>
                 </div>
             </div>
         </section>
-    -->
-
-    <!--
-    <section class="apple py-5">
-        <div class="container text-white py-5">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h1>COLE O TEXTO AQUI!!!</h1>
-                    <h6 class="font-weight-bold py-3">TEXTO AQUI</h6>
-                    <button class="btn1 mt-3">Saber MAIS</button>
-                </div>
-            </div>
-        </div>
-    </section>
-</body>
--->
-
-
-<section class="contato py-5" id="contato">
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-lg-5 m-auto text-center">
-                <h1 id="titulo">Quer um amigurumi personalizado?</h1>
-                <h6 style="color: red;">Entre em contato e peça já o seu!</h6>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-9">
-                <div class="row">
-                    <div class="col-lg-4 m-auto">
-                        <h6 id="titulo-superior">Localização</h6>
-                        <p>Ipiranga - São Paulo</p>
-                        
-                        <h6>Telefone</h6>
-                        <p>(11)976580893</p>
-                        
-                        <h6>EMAIL</h6>
-                        <p>miiamigurumi99@gmail.com</p>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="row">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <section class="novidades py-5" id="pre-rodape">
-        <div class="containter py-5">
-            <div class="row align-self-center">
-                <div class="col-lg-11 m-auto">
-                    <div class="row">
-                        <div class="col-lg-3 py-3">
-                            <h5 class="pb-3" id="titulo-pre-rodape">FORMAS DE PAGAMENTO</h5>
-                            <span class="fa-stack fa-lg">
-                                <i class=" fa-brands fa-cc-mastercard fa-stack-2x"></i>
-                            </span>
-                            <span class="fa-stack fa-lg">
-                                <i class="fa-brands fa-cc-visa fa-stack-2x"></i>
-                            </span>
-                            <span class="fa-stack fa-lg">
-                                <i class=" fa-brands fa-pix fa-stack-2x"></i>
-                            </span>
-                            <span class="fa-stack fa-lg">
-                                <i class="fa-sharp fa-solid fa-file-invoice-dollar fa-stack-2x"></i>
-                            </span>
-                        </div>
-                        <div class="col-lg-3 py-3">
-                            <h5 class="pb-3" id="titulo-pre-rodape">INSTITUCIONAL</h5>
-                            <p>Quem sou</p>
-                            <p>Política de Privacidade</p>
-                            <p>Programa de Fidelidade</p>
-                        </div>
-                        <div class="col-lg-3 py-3">
-                            <h5 class="pb-3" id="titulo-pre-rodape">DÚVIDAS</h5>
-                            <p>FAQ</p>
-                            <p>Trocas e devoluções</p>
-                            <p>Item 3</p>
-                        </div>
-                        <div class="col-lg-3 py-3">
-                            <h5 class="pb-3" id="titulo-pre-rodape">MIDIAS SOCIAIS</h5>
-                            <span class="fa-stack fa-lg" onclick="location.href='https://br.pinterest.com/MitsukiCrochetStore'">
-                                <i class="fa fa-circle-thin fa-stack-2x" id="redes-sociais"></i>
-                                <i class=" fa fa-pinterest fa-stack-1x fa" id="redes-sociais"></i>
-                            </span>
-                            <span class="fa-stack fa-lg" onclick="location.href='https://www.instagram.com/mitsukicrochetstore/'">
-                                <i class="fa fa-circle-thin fa-stack-2x" id="redes-sociais"></i>
-                                <i class=" fa fa-instagram fa-stack-1x fa" id="redes-sociais"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <p class="text-center" id="direitos">Direitos Autorais ©2022 Todos os direitos reservados | Esse site foi desenvolvido por Arthur Hayakawa</p>
-            </div>
-        </div>
-    </section>
-</footer>
+    </footer>
 </html>

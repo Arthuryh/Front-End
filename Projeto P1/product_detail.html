@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="css.css">
-    <script src="js/script.js"></script>
+    <script lang="javascript" src="js/script.js"></script>
 
 
     <title>Mitsuki Store | Seu amigurumi te espera aqui</title>
@@ -77,26 +77,30 @@
                             <h1 class="text-center py-5" id="titulo_do_cadastrar">Ainda não tenho cadastro</h1>
                             <div class="row-cols-1">
                                 <div class="text-center">
-                                    <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#myModal2" id="botao-modal">
+                                    <button type="button" class="btn w-100" data-bs-toggle="modal" data-bs-target="#myModal2" id="botao-cadastrar">
                                         Clique aqui para cadastrar
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <div class="col text-center py-5">
-                            <form id="frm2" class="form-control py-5">
+                            <form id="frm1" class="form-control py-5">
                                 <div class="col-lg-5 m-auto text-center">
                                     <h1>Login</h1>
                                 </div>
                                 <div class="row-cols-2 py-2">
-                                    email: <input type="text" id="email"><br>
+                                    Email: <input type="text" id="txtEmailLog"><br>
                                 </div>
+                                <ul id="lblEmailLog" class="errolbl"></ul>
+
                                 <div class="row-cols-2 py-2">
-                                    senha:<input type="password" id="senha"><br>
+                                    Senha: <input type="password" id="txtSenhaLog"><br>
                                 </div>
+                                <ul id="lblSenhaLog" class="errolbl"></ul>
+
                                 <div class="row-1 cols-2 py-2">
-                                    <button type="button" onclick="validar();" id="botao-modal">Enviar</button>
-                                    <button type="button" onclick="validar();" id="botao-modal">Esqueci a senha</button>
+                                    <button type="button" onclick="validarLogin();" id="botao-modal">Entrar</button>
+                                    <button type="button" onclick="" data-bs-toggle="modal" data-bs-target="#myModal3" id="botao-modal">Esqueci a senha</button>
                                 </div>
                             </form>
                         </div>
@@ -118,28 +122,69 @@
                 <!-- Modal body -->
                 <div class="modal-body" id="modal">
                     <div class="row py-5" id="caixa-1">
-                        <form id="frm1" class="form-control">
+                        <form id="frm2" class="form-control">
                             <h1 class="text-center py-3">Cadastrar-se</h1>
                             <div class="row-cols-2 py-2">
-                                nome:<input type="text" id="nome">
+                                Nome: <input type="text" id="txtNomeCad">
                             </div>
+                            <ul id="erroNome" class="errolbl"></ul>
+
                             <div class="row-cols-2 py-2">
-                                email: <input type="text" id="email">
+                                Email: <input type="text" id="txtEmailCad">
                             </div>
+                            <ul id="erroEmail" class="errolbl"></ul>
+
                             <div class="row-cols-2 py-2">
-                                senha:<input type="password" id="senha">
+                                Senha: <input type="password" id="txtSenhaCad">
                             </div>
-                            <div class="row-cols-2 py-2" id="campo-senhas">
-                                confirma:<input type="password" id="senha2">
-                            </div>
+                            <ul id="erroSenha" class="errolbl"></ul>
+
                             <div class="row-cols-2 py-2">
-                                CPF: <input type="text" id="cpf"><br>
+                                Confirma: <input type="password" id="txtConfirmaCad">
                             </div>
+                            <ul id="erroConfirma" class="errolbl"></ul>
+
                             <div class="row-cols-2 py-2">
-                                Telefone: <input type="text" id="telefone"><br>
+                                CPF: <input type="text" id="txtCpfCad"><br>
                             </div>
+                            <ul id="erroCpf" class="errolbl"></ul>
+
+                            <div class="row-cols-2 py-2">
+                                Telefone: <input type="text" id="txtTelCad"><br>
+                            </div>
+                            <ul id="erroTelefone" class="errolbl"></ul>
+
                             <div class="row-cols-1 py-2">
-                                <button type="button" class="w-100" onclick="validar();" id="botao-modal">Enviar</button>
+                                <button type="button" class="w-100" onclick="validarCad();" id="botao-modal">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="myModal3">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" id="corpoModal2">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Área do Usuário</h4>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#myModal"></button>
+                </div>
+                
+                
+                <!-- Modal body -->
+                <div class="modal-body" id="modal">
+                    <div class="row py-5" id="caixa-1">
+                        <form id="frm3" class="text-center form-control">
+                            <h1 class="py-3">Esqueci a Senha</h1>
+                            <div class="row-cols-2 py-2">
+                                Digite o Email: <input type="text" id="txtEmailEsq">
+                            </div>
+                            <ul id="lblEmailEsq" class="errolbl"></ul>
+                            <div class="row-cols-1 py-2">
+                                <button type="button" class="w-100" onclick="validarEsq();" id="botao-modal">Enviar</button>
                             </div>
                         </form>
                     </div>
@@ -153,9 +198,9 @@
             <div class="row">
                 <div class="col-lg-4 pt-5">
                     <div class="py-4 pt-5">
-                        <h1 class="text-center">Nome Produto</h1>
+                        <h1 class="text-center" id="tituloProduto">Nome Produto</h1>
                     </div>
-                    <h4>Garantindo que o crochê seja bordado com a maior precisão possível</h4>
+                    <h4 id="descricaoProduto">Garantindo que o crochê seja bordado com a maior precisão possível</h4>
                 </div>
                 <div class="col-lg-4">
                     <!-- Carousel -->
@@ -189,7 +234,7 @@
                 </div>
                 <div class="col-lg-4 py-2 pt-5">
                     <div class="py-2 pt-5">
-                        <h1 class="text-center">R$00.00</h1>
+                        <h1 class="text-center" id="precoProduto">R$00.00</h1>
                     </div>
                     <div class="py-2">
                         <h4>Especificações</h4>
