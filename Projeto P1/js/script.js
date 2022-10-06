@@ -3,9 +3,6 @@ var regEmail = new RegExp("[a-z0-9]+@[a-z]+\.[a-z]{2,3}");
 var regSenha = new RegExp("^(?=.*[A-Z])(?=.*[!#@$%&-+_(){}])(?=.*[0-9])(?=.*[a-z]).{6,25}$");
 var regCPF = new RegExp("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}");
 var regTel = new RegExp("[0-9]{4,5}-[0-9]{4}");
-var nomeProd;
-
-var idnome;
 
 function validarCad(){
     document.getElementById("txtNomeCad").classList.remove("errotxt");
@@ -146,19 +143,27 @@ function padraoPagina(titulo, descricao, precoProduto, especsProduto, src1, src2
     document.getElementById("carrou3").src="img/produtos/"+src3+".webp";
 }
 
-function store (guardado) {
-    var first = guardado;
-
+function store_prod (guardado) {
     sessionStorage.setItem("first", guardado);
-
     location.href = "product_detail.html";
-
 }
 
-
-  function get () {
+function get_prod () {
     var first = sessionStorage.getItem("first");
-
     carregarPag(first);
+}
 
-  }
+function store_busca (guardado) {
+    sessionStorage.setItem("busca", guardado);
+    location.href = "busca.html";
+}
+
+function get_busca () {
+    var first = sessionStorage.getItem("busca");
+    document.getElementById("produto-procurado").innerHTML = first;
+}
+
+function limparCarrinho(){
+    document.getElementById("conteudo").remove();
+    document.getElementById("frm4").innerHTML = "<h1>CESTA VAZIA</h1>";
+}

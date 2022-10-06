@@ -19,10 +19,10 @@
     <script lang="javascript" src="js/script.js"></script>
 
 
-    <title>Mitsuki Store | Seu amigurumi te espera aqui</title>
+    <title>Mitsuki Store | Detalhes</title>
 </head>
 
-<body id="corpo" onload="get();">
+<body id="corpo" onload="get_prod();">
     <header id="cabecario">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
@@ -36,25 +36,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="vitrine.html" id="menu-opcao">Produtos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="menu-opcao">Contato</a>
-                        </li>
                         <li class="nav-item active dropdown" id="menu-drop">
                             <a class="nav-link dropdown-toggle" id="menu-drop" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Usuário
                             </a>
                             <ul class="dropdown-menu text-center" aria-labelledby="menu-drop">
                                 <li><a href="" type="button" class="btn w-auto dropdown-item" id="menu-drop-opcao" data-bs-toggle="modal" data-bs-target="#myModal">Conta</a>
-                                    
-                                    
-
-                                <li><a href="" class="dropdown-item" id="menu-drop-opcao">Carrinho</a>
+                                <li><a href="" type="button" class="btn w-auto dropdown-item" id="menu-drop-opcao" data-bs-toggle="modal" data-bs-target="#myModal4">Carrinho</a>
                             </ul>
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <input class="px-2 search" type="search" placeholder="Produto" aria-label="Search" id="busca">
-                        <button class="btn0" type="submit" id="botao-busca">Buscar</button>
+                        <input class="px-2 search" type="search" placeholder="Produto" aria-label="Search" id="txtBuscaProduto">
+                        <button class="btn0" type="button" id="botao-busca" onclick="store_busca(document.getElementById('txtBuscaProduto').value);">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -89,12 +83,12 @@
                                     <h1>Login</h1>
                                 </div>
                                 <div class="row-cols-2 py-2">
-                                    Email: <input type="text" id="txtEmailLog"><br>
+                                    Email: <input type="text" id="txtEmailLog" placeholder="Digite seu email"><br>
                                 </div>
                                 <ul id="lblEmailLog" class="errolbl"></ul>
 
                                 <div class="row-cols-2 py-2">
-                                    Senha: <input type="password" id="txtSenhaLog"><br>
+                                    Senha: <input type="password" id="txtSenhaLog" placeholder="Digite sua senha"><br>
                                 </div>
                                 <ul id="lblSenhaLog" class="errolbl"></ul>
 
@@ -125,32 +119,32 @@
                         <form id="frm2" class="form-control">
                             <h1 class="text-center py-3">Cadastrar-se</h1>
                             <div class="row-cols-2 py-2">
-                                Nome: <input type="text" id="txtNomeCad">
+                                Nome: <input type="text" id="txtNomeCad" placeholder="Digite seu nome">
                             </div>
                             <ul id="erroNome" class="errolbl"></ul>
 
                             <div class="row-cols-2 py-2">
-                                Email: <input type="text" id="txtEmailCad">
+                                Email: <input type="text" id="txtEmailCad" placeholder="Digite seu email">
                             </div>
                             <ul id="erroEmail" class="errolbl"></ul>
 
                             <div class="row-cols-2 py-2">
-                                Senha: <input type="password" id="txtSenhaCad">
+                                Senha: <input type="password" id="txtSenhaCad" placeholder="Digite uma senha valida">
                             </div>
                             <ul id="erroSenha" class="errolbl"></ul>
 
                             <div class="row-cols-2 py-2">
-                                Confirma: <input type="password" id="txtConfirmaCad">
+                                Confirma: <input type="password" id="txtConfirmaCad" placeholder="Confirme sua senha">
                             </div>
                             <ul id="erroConfirma" class="errolbl"></ul>
 
                             <div class="row-cols-2 py-2">
-                                CPF: <input type="text" id="txtCpfCad"><br>
+                                CPF: <input type="text" id="txtCpfCad" placeholder="Digite seu CPF"><br>
                             </div>
                             <ul id="erroCpf" class="errolbl"></ul>
 
                             <div class="row-cols-2 py-2">
-                                Telefone: <input type="text" id="txtTelCad"><br>
+                                Telefone: <input type="text" id="txtTelCad" placeholder="Digite seu telefone"><br>
                             </div>
                             <ul id="erroTelefone" class="errolbl"></ul>
 
@@ -166,7 +160,7 @@
 
     <div class="modal" id="myModal3">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content" id="corpoModal2">
+            <div class="modal-content" id="corpoModal3">
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Área do Usuário</h4>
@@ -180,7 +174,7 @@
                         <form id="frm3" class="text-center form-control">
                             <h1 class="py-3">Esqueci a Senha</h1>
                             <div class="row-cols-2 py-2">
-                                Digite o Email: <input type="text" id="txtEmailEsq">
+                                Email: <input type="text" id="txtEmailEsq" placeholder="Digite o email cadastrado">
                             </div>
                             <ul id="lblEmailEsq" class="errolbl"></ul>
                             <div class="row-cols-1 py-2">
@@ -192,26 +186,74 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" id="myModal4">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" id="corpoModal4">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Carrinho</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+    
+                <!-- Modal body -->
+                <div class="modal-body" id="modal">
+                    <div class="row py-5" id="caixa-1">
+                        <form id="frm4" class="form-control text-center">
+                            <div id="conteudo">
+                                <div class="row">
+                                    <div class="col-lg-2 pt-2">
+                                        <img src="img/produtos/p1.webp" id="prod1" class="img-fluid" alt="" onclick="store(this.id);">
+                                    </div>
+                                    <div class="col-lg-2">
+                                        PRODUTO <br>
+                                        Cypher
+                                    </div>
+                                    <div class="col-lg-2">
+                                        QUANTIDADE <br>
+                                        1x
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-2 pt-2">
+                                        <img src="img/produtos/p2.webp" id="prod1" class="img-fluid" alt="" onclick="store(this.id);">
+                                    </div>
+                                    <div class="col-lg-2">
+                                        PRODUTO <br>
+                                        Sage
+                                    </div>
+                                    <div class="col-lg-2">
+                                        QUANTIDADE <br>
+                                        1x
+                                    </div>   
+                                </div>
+                            </div>
+                        </form>
+                        <button class="btn w-50" id="botao-vitrine" onclick="limparCarrinho();">Limpar Cesta</button>
+                        <button class="btn w-50" id="botao-vitrine" onclick="document.getElementById('frm4').submit();">Finalizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <section class="sobre">
         <div class="container py-5">
             <div class="row">
-                <div class="col-lg-4 pt-5">
-                    <div class="py-4 pt-5">
+                <div class="col-lg-4 pt-2">
+                    <div class="py-5 ">
                         <h1 class="text-center" id="tituloProduto"></h1>
                     </div>
-                    <h4 id="descricaoProduto">Garantindo que o crochê seja bordado com a maior precisão possível</h4>
+                    <p id="descricaoProduto"></p>
                 </div>
                 <div class="col-lg-4">
-                    <!-- Carousel -->
                     <div id="demo" class="carousel slide" data-bs-ride="carousel">
-                        <!-- Indicators/dots -->
                         <div class="carousel-indicators">
                         <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
                         <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
                         <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
                         </div>
-                        <!-- The slideshow/carousel -->
                         <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="" id="carrou1" alt="Los Angeles" class="d-block w-100">
@@ -223,7 +265,6 @@
                             <img src="" id="carrou3" alt="New York" class="d-block w-100">
                         </div>
                         </div>
-                        <!-- Left and right controls/icons -->
                         <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
                         </button>
@@ -232,73 +273,71 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-lg-4 py-2 pt-5">
-                    <div class="py-2 pt-5">
-                        <h1 class="text-center" id="precoProduto">R$00.00</h1>
+                <div class="col-lg-4 py-2 pt-2 text-center">
+                    <div class="py-5">
+                        <h1 class="" id="precoProduto">R$00.00</h1>
                     </div>
                     <div class="py-2">
-                        <h4>Especificações</h4>
+                        <h2>Especificações</h2>
                         <p id="especsProduto">Garantindo a qualidade final de seu produto, com todos os detalhes possíveis</p>
                     </div>
-                    <div class="text-center py-5">
-                        <button class="btn1" onclick="location.href='vitrine.html'" id="botao-vitrine">Adicionar ao Carrinho</button>
+                    <div class="py-5">
+                        <button class="btn1" data-bs-toggle="modal" data-bs-target="#myModal4" id="botao-vitrine">Adicionar ao Carrinho</button>
                     </div>
-                </div>
-                
+                </div>   
             </div>
         </div>
     </section>
 
-<footer>
-    <section class="novidades py-5" id="pre-rodape">
-        <div class="containter py-5">
-            <div class="row align-self-center">
-                <div class="col-lg-11 m-auto">
-                    <div class="row">
-                        <div class="col-lg-3 py-3">
-                            <h5 class="pb-3" id="titulo-pre-rodape">FORMAS DE PAGAMENTO</h5>
-                            <span class="fa-stack fa-lg">
-                                <i class=" fa-brands fa-cc-mastercard fa-stack-2x"></i>
-                            </span>
-                            <span class="fa-stack fa-lg">
-                                <i class="fa-brands fa-cc-visa fa-stack-2x"></i>
-                            </span>
-                            <span class="fa-stack fa-lg">
-                                <i class=" fa-brands fa-pix fa-stack-2x"></i>
-                            </span>
-                            <span class="fa-stack fa-lg">
-                                <i class="fa-sharp fa-solid fa-file-invoice-dollar fa-stack-2x"></i>
-                            </span>
-                        </div>
-                        <div class="col-lg-3 py-3">
-                            <h5 class="pb-3" id="titulo-pre-rodape">INSTITUCIONAL</h5>
-                            <p>Quem sou</p>
-                            <p>Política de Privacidade</p>
-                            <p>Programa de Fidelidade</p>
-                        </div>
-                        <div class="col-lg-3 py-3">
-                            <h5 class="pb-3" id="titulo-pre-rodape">DÚVIDAS</h5>
-                            <p>FAQ</p>
-                            <p>Trocas e devoluções</p>
-                            <p>Item 3</p>
-                        </div>
-                        <div class="col-lg-3 py-3">
-                            <h5 class="pb-3" id="titulo-pre-rodape">MIDIAS SOCIAIS</h5>
-                            <span class="fa-stack fa-lg" onclick="location.href='https://br.pinterest.com/MitsukiCrochetStore'">
-                                <i class="fa fa-circle-thin fa-stack-2x" id="redes-sociais"></i>
-                                <i class=" fa fa-pinterest fa-stack-1x fa" id="redes-sociais"></i>
-                            </span>
-                            <span class="fa-stack fa-lg" onclick="location.href='https://www.instagram.com/mitsukicrochetstore/'">
-                                <i class="fa fa-circle-thin fa-stack-2x" id="redes-sociais"></i>
-                                <i class=" fa fa-instagram fa-stack-1x fa" id="redes-sociais"></i>
-                            </span>
+    <footer>
+        <section class="novidades py-5" id="pre-rodape">
+            <div class="containter py-5">
+                <div class="row align-self-center">
+                    <div class="col-lg-11 m-auto">
+                        <div class="row">
+                            <div class="col-lg-3 py-3">
+                                <h5 class="pb-3" id="titulo-pre-rodape">FORMAS DE PAGAMENTO</h5>
+                                <span class="fa-stack fa-lg">
+                                    <i class=" fa-brands fa-cc-mastercard fa-stack-2x"></i>
+                                </span>
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa-brands fa-cc-visa fa-stack-2x"></i>
+                                </span>
+                                <span class="fa-stack fa-lg">
+                                    <i class=" fa-brands fa-pix fa-stack-2x"></i>
+                                </span>
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa-sharp fa-solid fa-file-invoice-dollar fa-stack-2x"></i>
+                                </span>
+                            </div>
+                            <div class="col-lg-3 py-3">
+                                <h5 class="pb-3" id="titulo-pre-rodape">INSTITUCIONAL</h5>
+                                <p>Quem sou</p>
+                                <p>Política de Privacidade</p>
+                                <p>Programa de Fidelidade</p>
+                            </div>
+                            <div class="col-lg-3 py-3">
+                                <h5 class="pb-3" id="titulo-pre-rodape">DÚVIDAS</h5>
+                                <p>FAQ</p>
+                                <p>Trocas e devoluções</p>
+                            </div>
+                            <div class="col-lg-3 py-3">
+                                <h5 class="pb-3" id="titulo-pre-rodape">MIDIAS SOCIAIS</h5>
+                                <span class="fa-stack fa-lg" onclick="location.href='https://br.pinterest.com/MitsukiCrochetStore'">
+                                    <i class="fa fa-circle-thin fa-stack-2x" id="redes-sociais"></i>
+                                    <i class=" fa fa-pinterest fa-stack-1x fa" id="redes-sociais"></i>
+                                </span>
+                                <span class="fa-stack fa-lg" onclick="location.href='https://www.instagram.com/mitsukicrochetstore/'">
+                                    <i class="fa fa-circle-thin fa-stack-2x" id="redes-sociais"></i>
+                                    <i class=" fa fa-instagram fa-stack-1x fa" id="redes-sociais"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
+                    <hr>
+                    <p class="text-center" id="direitos">Direitos Autorais ©2022 Todos os direitos reservados | Esse site foi desenvolvido por Arthur Hayakawa</p>
                 </div>
-                <hr>
-                <p class="text-center" id="direitos">Direitos Autorais ©2022 Todos os direitos reservados | Esse site foi desenvolvido por Arthur Hayakawa</p>
             </div>
-        </div>
-    </section>
-</footer>
+        </section>
+    </footer>
 </html>

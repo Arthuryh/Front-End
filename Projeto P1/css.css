@@ -38,13 +38,13 @@
     font-family: 'Caveat', cursive;
 }
 
-#busca {
+#txtBuscaProduto {
     height: 40px;
     width: 80%;
     border-radius: 60px;
     outline: none;
     margin-right: -35px;
-    border: 2px solid black
+    border: 2px solid black;
 }
 
 #botao-busca{
@@ -70,7 +70,7 @@
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-#quadro-inicial #titulo {
+#quadro-inicial #titulo, #tituloProduto, #precoProduto {
     font-size: 4rem;
     font-weight: 700;
     
@@ -140,13 +140,6 @@
     }
 }
 
-.apple{
-    background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url("...")no-repeat ;
-    background-size: cover;
-    height: 80vh;
-    width: 100%;
-}
-
 #pre-rodape {
     background: black;
     color: white;
@@ -206,22 +199,15 @@ footer {
 
 /* CSS LOGIN*/
 
-#corpoModal1, #corpoModal2, #frm2, #frm1, #frm3{
+#corpoModal1, #corpoModal2, #corpoModal3, #corpoModal4, #frm2, #frm1, #frm3, #frm4{
     background: linear-gradient(to right top, #2e0537, #480c4d, #641363, #831979, #a41f8e);
     color: white;
 }
-
-
-#caixa-2 {
-    display: none;
-}
-
 
 #titulo_do_cadastrar{
     padding-bottom: 0px;
     margin-bottom: 0;
 }
-
 
 
 #menu-logo:hover,#menu-opcao:hover,#menu-drop:hover,#menu-drop-opcao:hover, #modal #botao-modal:hover,
@@ -239,12 +225,10 @@ footer {
     #modal {
         display: block !important;
     }
-    
-    #caixa-2 {
-        overflow-y: auto;
+
+    #myModal4 #botao-vitrine {
+        margin-bottom: 3% !important;
     }
-    
-    
 }
 
 #modal #botao-modal{
@@ -268,7 +252,7 @@ footer {
     padding-top: 0px;
 }
 
-/*Em caso de erro nas textbox*/
+/*Em caso de erro nas functions, aplicar css nas classes abaixo*/
 .errotxt {
     color:red;
     border: solid red 3px;
@@ -278,4 +262,9 @@ footer {
     color:red;
     margin: 0%;
     padding: 0%;
+}
+
+/* CSS DA PAGINA BUSCA*/
+#pag-busca #titulo, #pag-busca #produto-procurado {
+    display: inline;
 }
