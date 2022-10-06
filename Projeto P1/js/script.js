@@ -5,6 +5,8 @@ var regCPF = new RegExp("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}");
 var regTel = new RegExp("[0-9]{4,5}-[0-9]{4}");
 var nomeProd;
 
+var idnome;
+
 function validarCad(){
     document.getElementById("txtNomeCad").classList.remove("errotxt");
     document.getElementById("txtEmailCad").classList.remove("errotxt");
@@ -112,28 +114,51 @@ function validarEsq() {
     }
 }
 
-
-
-function abrirProd() {
-    nomeProd = document.getElementById("prod").innerHTML;
-    if(nomeProd == "Cypher") {
-        console.log("Entrou Cypher");
-        location.href="product_detail.html";
+function carregarPag(pagina) {
+    if(pagina == "prod1") {
+        padraoPagina("Cypher","Cypher é um agente de VALORANT que é a personificação do arquétipo do espião e do infiltrado. Cypher depende de emboscar inimigos com várias armadilhas, que atordoam, restringem e retardam os inimigos em seu alcance.",
+        "R$110,00","Tamanho:60x60<br>Peso:100g","p1","p1a","p1b");
     }
 
-    if(nomeProd == "Cypher") {
-        console.log("Entrou Cypher");
-        //location.href="product_detail.html";
-    }
-
-    if(nomeProd == "Cypher") {
-        console.log("Entrou Cypher");
-        //location.href="product_detail.html";
-    }
-
-    if(nomeProd == "Cypher") {
-        console.log("Entrou Cypher");
-        //location.href="product_detail.html";
+    if(pagina == "prod2") {
+        padraoPagina("Killjoy","Killjoy é um agente de VALORANT especializado em controle de multidões por meio de gadgets, bots e maravilhas da engenharia. Alarmbot e Nanoswarm permitem que Killjoy implante ferramentas que procuram e danificam alvos ou explodem para causar dano de um estado secreto. Sua Torreta, por outro lado, pode ser colocada em uma área crítica no mapa, como locais de plantas Spike, atrás de cantos ou outras posições estratégicas para causar dano aos inimigos em seu alcance.",
+        "R$125,00","Tamanho:75x75<br>Peso:125g","p2","p2a","p2b");
     }
     
+    if(pagina == "prod3") {
+        padraoPagina("Sage","Sage é uma agente de VALORANT, cujas habilidades fazem dela um suporte fundamental no jogo. Sage equipa vários orbes que podem retardar inimigos, curar aliados ou erguer paredes para controlar o campo de batalha. Sua suprema, Ressurreição, pode até trazer aliados mortos de volta à vida, balançando o equilíbrio de poder em uma partida em segundos. Sage prospera quando está atrás de sua equipe, escondida do fogo inimigo.",
+        "R$130,00","Tamanho:65x65<br>Peso:110g","p3","p3a","p3b");
+    }
+    
+    if(pagina == "prod4") {
+        padraoPagina("Jett","Jett é um agente de VALORANT especializado em mobilidade e assassinatos. Como um verdadeiro ninja, este agente sul-coreano pode percorrer distâncias curtas para alcançar inimigos ou escapar de situações perigosas, e até mesmo se impulsionar para alcançar lugares altos e surpreender alvos à espreita que pensam que estão seguros lá em cima. A combinação da habilidade Cloudburst e o Blade Storm ultimate fazem de Jett um pesadelo de combate corpo a corpo, pois ela pode executar inimigos que nem percebem o que os atingiu.",
+        "R$115,00","Tamanho:73x73<br>Peso:115g","p4","p4a","p4b");
+    }
 }
+
+function padraoPagina(titulo, descricao, precoProduto, especsProduto, src1, src2, src3) {
+    document.getElementById("tituloProduto").innerHTML = titulo;
+    document.getElementById("descricaoProduto").innerHTML = descricao;
+    document.getElementById("precoProduto").innerHTML = precoProduto;
+    document.getElementById("especsProduto").innerHTML = especsProduto;
+    document.getElementById("carrou1").src="img/produtos/"+src1+".webp";
+    document.getElementById("carrou2").src="img/produtos/"+src2+".webp";
+    document.getElementById("carrou3").src="img/produtos/"+src3+".webp";
+}
+
+function store (guardado) {
+    var first = guardado;
+
+    sessionStorage.setItem("first", guardado);
+
+    location.href = "product_detail.html";
+
+}
+
+
+  function get () {
+    var first = sessionStorage.getItem("first");
+
+    carregarPag(first);
+
+  }

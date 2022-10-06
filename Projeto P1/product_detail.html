@@ -22,7 +22,7 @@
     <title>Mitsuki Store | Seu amigurumi te espera aqui</title>
 </head>
 
-<body id="corpo">
+<body id="corpo" onload="get();">
     <header id="cabecario">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
@@ -198,7 +198,7 @@
             <div class="row">
                 <div class="col-lg-4 pt-5">
                     <div class="py-4 pt-5">
-                        <h1 class="text-center" id="tituloProduto">Nome Produto</h1>
+                        <h1 class="text-center" id="tituloProduto"></h1>
                     </div>
                     <h4 id="descricaoProduto">Garantindo que o crochê seja bordado com a maior precisão possível</h4>
                 </div>
@@ -214,13 +214,13 @@
                         <!-- The slideshow/carousel -->
                         <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="img/produtos/p1.webp" alt="Los Angeles" class="d-block w-100">
+                            <img src="" id="carrou1" alt="Los Angeles" class="d-block w-100">
                         </div>
                         <div class="carousel-item">
-                            <img src="img/produtos/p1.webp" alt="Chicago" class="d-block w-100">
+                            <img src="" id="carrou2" alt="Chicago" class="d-block w-100">
                         </div>
                         <div class="carousel-item">
-                            <img src="img/produtos/p1.webp" alt="New York" class="d-block w-100">
+                            <img src="" id="carrou3" alt="New York" class="d-block w-100">
                         </div>
                         </div>
                         <!-- Left and right controls/icons -->
@@ -238,7 +238,7 @@
                     </div>
                     <div class="py-2">
                         <h4>Especificações</h4>
-                        <p>Garantindo a qualidade final de seu produto, com todos os detalhes possíveis</p>
+                        <p id="especsProduto">Garantindo a qualidade final de seu produto, com todos os detalhes possíveis</p>
                     </div>
                     <div class="text-center py-5">
                         <button class="btn1" onclick="location.href='vitrine.html'" id="botao-vitrine">Adicionar ao Carrinho</button>
