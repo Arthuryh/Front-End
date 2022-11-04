@@ -229,6 +229,11 @@ footer {
     #myModal4 #botao-vitrine {
         margin-bottom: 3% !important;
     }
+
+    #caixa-1 .row-cols-2>*{
+        flex: 0 0 auto !important;
+        width: 100% !important;
+    }
 }
 
 #modal #botao-modal{

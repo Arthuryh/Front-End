@@ -3,6 +3,7 @@ var regEmail = new RegExp("[a-z0-9]+@[a-z]+\.[a-z]{2,3}");
 var regSenha = new RegExp("^(?=.*[A-Z])(?=.*[!#@$%&-+_(){}])(?=.*[0-9])(?=.*[a-z]).{6,25}$");
 var regCPF = new RegExp("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}");
 var regTel = new RegExp("[0-9]{4,5}-[0-9]{4}");
+var regEnd = new RegExp("[A-z ]{6,100}");
 
 function validarCad(){
     document.getElementById("txtNomeCad").classList.remove("errotxt");
@@ -11,12 +12,14 @@ function validarCad(){
     document.getElementById("txtConfirmaCad").classList.remove("errotxt");
     document.getElementById("txtCpfCad").classList.remove("errotxt");
     document.getElementById("txtTelCad").classList.remove("errotxt");
+    document.getElementById("txtEndCad").classList.remove("errotxt");
     erroNome.innerHTML = "";
     erroEmail.innerHTML = "";
     erroSenha.innerHTML = "";
     erroConfirma.innerHTML = "";
     erroCpf.innerHTML = "";
     erroTelefone.innerHTML = "";
+    erroEnd.innerHTML = "";
     var tudoOk = true;
     if(!regNome.test(txtNomeCad.value)){
         erroNome.innerHTML = "Informe um nome completo !";
@@ -59,6 +62,13 @@ function validarCad(){
         document.getElementById("erroTelefone").classList.add("errolbl");
         document.getElementById("txtTelCad").classList.add("errotxt");
         document.getElementById("txtTelCad").focus();
+        tudoOk = false;
+    }
+    if(!regEnd.test(txtEndCad.value)){
+        erroEnd.innerHTML = "Informe um endereço valido !";
+        document.getElementById("erroEnd").classList.add("errolbl");
+        document.getElementById("txtEndCad").classList.add("errotxt");
+        document.getElementById("txtEndCad").focus();
         tudoOk = false;
     }
     if(tudoOk == true) {
