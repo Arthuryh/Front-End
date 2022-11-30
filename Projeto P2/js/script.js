@@ -121,7 +121,7 @@ function validarEsq() {
     }
 }
 
-function carregarPag(pagina) {
+function carregarPag(pagina) { //PAREI AQUI
     if(pagina == "prod1") {
         padraoPagina("Cypher","Cypher é um agente de VALORANT que é a personificação do arquétipo do espião e do infiltrado. Cypher depende de emboscar inimigos com várias armadilhas, que atordoam, restringem e retardam os inimigos em seu alcance.",
         "R$110,00","Tamanho:60x60<br>Peso:100g","p1","p1a","p1b");

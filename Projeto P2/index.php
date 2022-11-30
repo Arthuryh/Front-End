@@ -23,6 +23,8 @@
 </head>
 
 <body id="corpo">
+    <!-- CABEÇARIO / MODAL USUARIO -->
+
     <header id="cabecario">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
@@ -256,6 +258,9 @@
         </div>
     </div>
 
+    <!-- QUADRO PRINCIPAL -->
+
+
     <section class="principal" id="quadro-inicial">
         <div class="container py-5">
             <div class="row py-5">
@@ -267,6 +272,8 @@
         </div>
     </section>
 
+    <!-- CARDS PRODUTOS / VALORANT -->
+
     <section class="colecao">
         <div class="container py-5">
             <div class="row py-5">
@@ -276,42 +283,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 text-center">
-                    <div class="card border-0 bg-light mb-2" id="prod-card">
-                        <div class="card-body">
-                            <img src="img/produtos/p1.webp" id="prod1" class="img-fluid" alt="" onclick="store_prod(this.id);">
-                        </div>
-                    </div>
-                    <h6>Cypher</h6>
-                    <p>R$110,00</p>
-                </div>
-                <div class="col-lg-3 text-center">
-                    <div class="card border-0 bg-light mb-2" id="prod-card">
-                        <div class="card-body">
-                            <img src="img/produtos/p2.webp" id="prod2" class="img-fluid" alt="" onclick="store_prod(this.id);">
-                        </div>
-                    </div>
-                    <h6>Killjoy</h6>
-                    <p>R$125,00</p>
-                </div>
-                <div class="col-lg-3 text-center">
-                    <div class="card border-0 bg-light mb-2" id="prod-card" >
-                        <div class="card-body">
-                            <img src="img/produtos/p3.webp" id="prod3" class="img-fluid" alt="" onclick="store_prod(this.id);">
-                        </div>
-                    </div>
-                    <h6>Sage</h6>
-                    <p>R$130,00</p>
-                </div>
-                <div class="col-lg-3 text-center">
-                    <div class="card border-0 bg-light mb-2" id="prod-card" >
-                        <div class="card-body">
-                            <img src="img/produtos/p4.webp" id="prod4" class="img-fluid" alt="" onclick="store_prod(this.id);">
-                        </div>
-                    </div>
-                    <h6>Jett</h6>
-                    <p>R$115,00</p>
-                </div>
+                <?php lista_valorant(); ?>
             </div>
             <div class="row">
                 <div class="col-lg-6 text-center m-auto">
@@ -320,6 +292,8 @@
             </div>
         </div>
     </section>
+
+    <!-- CARDS SOBRE PRODUTOS -->
 
     <section class="sobre" id="sobre-produtos">
         <div class="container py-5">
@@ -355,6 +329,7 @@
         </div>
     </section>
 
+    <!-- QUADRO INFORMAÇÕES -->
 
     <section class="contato py-5" id="contato">
         <div class="container py-5">
@@ -386,6 +361,8 @@
             </div>
         </div>
     </section>
+
+    <!--FOOTER -->
 
     <footer>
         <section class="novidades py-5" id="pre-rodape">
@@ -440,5 +417,53 @@
     </footer>
 </html>
 <?php
+function lista_tudo(){
+    $con = new mysqli("localhost","root","123456","p2_mitsuki_db");
+    if(isset($_POST["bt1"])){
+        $busca = $_POST["busca"];
+        $sql = "select * from produto where titulo like '%$busca%' order by titulo";
+    } else {
+        $sql = "select * from produto order by titulo";
+    }
+    $retorno = mysqli_query($con,$sql);
+    while($reg = mysqli_fetch_array($retorno)){
+        /*echo "<tr><td>". $reg["codigo"] . "</td>";
+        echo "<td>".$reg["titulo"]."</td>";
+        echo "<td>".$reg["valor"]."</td>";
+        echo "<td><a href='produto.php?codigo=" . $reg['codigo'] . "'>editar</a></td></tr>";*/
 
+        echo "<div class='col-lg-3 text-center'>";
+        echo "<div class='card border-0 bg-light mb-2' id='prod-card'>";
+        echo "<div class='card-body'>";
+        echo "<img src='img/produtos/p" .$reg["codigo"].".webp' id='prod1' class='img-fluid' alt='' onclick='store_prod(this.id);'></div></div>";
+        echo "<h6>".$reg["titulo"]."</h6>";
+        echo "<p>R$".$reg["valor"]."</p></div>";
+    }
+    mysqli_close($con);
+}
+
+function lista_valorant(){
+    $con = new mysqli("localhost","root","123456","p2_mitsuki_db");
+    if(isset($_POST["bt1"])){
+        $busca = $_POST["busca"];
+        $sql = "select * from produto where titulo like '%$busca%' order by titulo";
+    } else {
+        $sql = "select * from produto where categoria like 'valorant' order by titulo";
+    }
+    $retorno = mysqli_query($con,$sql);
+    while($reg = mysqli_fetch_array($retorno)){
+        /*echo "<tr><td>". $reg["codigo"] . "</td>";
+        echo "<td>".$reg["titulo"]."</td>";
+        echo "<td>".$reg["valor"]."</td>";
+        echo "<td><a href='produto.php?codigo=" . $reg['codigo'] . "'>editar</a></td></tr>";*/
+
+        echo "<div class='col-lg-3 text-center'>";
+        echo "<div class='card border-0 bg-light mb-2' id='prod-card'>";
+        echo "<div class='card-body'>";
+        echo "<img src='" .$reg["destaque"].$reg["categoria"]."/".$reg["codigo"].".webp' id='prod1' class='img-fluid' alt='' onclick='store_prod(".$reg["codigo"].");'></div></div>"; //PAREI AQUI
+        echo "<h6>".$reg["titulo"]."</h6>";
+        echo "<p>R$".$reg["valor"]."</p></div>";
+    }
+    mysqli_close($con);
+}
 ?>

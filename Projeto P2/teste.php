@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="row">
-                <?php listar(); ?>
+                <?php listar2(); ?>
             </div>
         </div>
     </section>
@@ -57,6 +57,31 @@ function listar(){
         echo "<div class='card border-0 bg-light mb-2' id='prod-card'>";
         echo "<div class='card-body'>";
         echo "<img src='img/produtos/p" .$reg["codigo"].".webp' id='prod1' class='img-fluid' alt='' onclick='store_prod(this.id);'></div></div>";
+        echo "<h6>".$reg["titulo"]."</h6>";
+        echo "<p>R$".$reg["valor"]."</p></div>";
+    }
+    mysqli_close($con);
+}
+
+function listar2(){
+    $con = new mysqli("localhost","root","123456","p2_mitsuki_db");
+    if(isset($_POST["bt1"])){
+        $busca = $_POST["busca"];
+        $sql = "select * from produto where titulo like '%$busca%' order by titulo";
+    } else {
+        $sql = "select * from produto where categoria like 'valorant' order by titulo";
+    }
+    $retorno = mysqli_query($con,$sql);
+    while($reg = mysqli_fetch_array($retorno)){
+        /*echo "<tr><td>". $reg["codigo"] . "</td>";
+        echo "<td>".$reg["titulo"]."</td>";
+        echo "<td>".$reg["valor"]."</td>";
+        echo "<td><a href='produto.php?codigo=" . $reg['codigo'] . "'>editar</a></td></tr>";*/
+
+        echo "<div class='col-lg-3 text-center'>";
+        echo "<div class='card border-0 bg-light mb-2' id='prod-card'>";
+        echo "<div class='card-body'>";
+        echo "<img src='" .$reg["destaque"].$reg["categoria"]."/".$reg["codigo"].".webp' id='prod1' class='img-fluid' alt='' onclick='store_prod(this.id);'></div></div>";
         echo "<h6>".$reg["titulo"]."</h6>";
         echo "<p>R$".$reg["valor"]."</p></div>";
     }
